@@ -1,0 +1,327 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    justify-content: space-between;
+    /* Para alinear los elementos en extremos */
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    /* Centra el logo */
+    flex-grow: 1;
+    /* Para ocupar el espacio disponible */
+    color: #00aae4;
+}
+
+header .hamburger {
+    font-size: 1.5rem;
+    cursor: pointer;
+    /* Cambia el cursor al pasar el mouse */
+    margin-right: 1rem;
+    /* Espacio entre el menú y el logo */
+}
+
+header .icons {
+    display: flex;
+    gap: 1rem;
+}
+
+
+
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    /* Ocultar el menú en pantallas grandes */
+    flex-direction: column;
+    /* Alinear los elementos verticalmente */
+    background-color: #333;
+    color: #fff;
+    position: absolute;
+    /* Posicionar el menú sobre el contenido */
+    top: 60px;
+    /* Debajo del header */
+    left: 0;
+    width: 100%;
+    /* Tomar todo el ancho */
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.mobile-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilo activo para el menú */
+.mobile-nav.active {
+    display: flex;
+    /* Mostrar el menú cuando esté activo */
+}
+
+/* Main content */
+main {
+    padding: 1rem;
+}
+
+/* Filter section */
+/* Alineación en línea horizontal para el botón y el menú desplegable */
+.filter {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    gap: 1rem;
+    /* Espacio entre el botón y el menú desplegable */
+}
+
+.filter button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.sort select {
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    overflow: hidden;
+    /* Oculta el desbordamiento */
+}
+
+.product {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Añadir transición */
+}
+
+.product:hover {
+    transform: scale(1.05);
+    /* Escala al pasar el mouse */
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    /* Añadir transición a la imagen */
+}
+
+.product img:hover {
+    transform: scale(1.1);
+    /* Escala la imagen al pasar el mouse */
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.product .price {
+    color: #ff6600;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.product button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+footer p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p.copyright {
+    font-size: 0.9em;
+    margin-top: 20px;
+    color: #999;
+}
+
+/* Oculta el menú de navegación de escritorio y el carrito en pantallas pequeñas */
+.desktop-nav,
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* Mostrar el menú de hamburguesa y ocultar el menú de escritorio */
+    .hamburger {
+        display: block;
+    }
+
+    .desktop-nav,
+    .icons {
+        display: none;
+    }
+
+    /* Mostrar el menú de navegación móvil cuando se activa */
+    .mobile-nav {
+        display: none;
+        /* Ocultar por defecto */
+    }
+
+    /* Mostrar el menú móvil cuando esté activo */
+    .mobile-nav.active {
+        display: flex;
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-container {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+
+    .social h4 {
+        font-size: 1.1em;
+    }
+
+    .social a {
+        margin: 0 5px;
+    }
+
+    .social img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        text-align: center;
+        /* Centramos el texto en modo móvil */
+    }
+
+    header .logo {
+        flex: 1;
+        /* Permitir que el logo ocupe espacio disponible */
+    }
+
+    header .hamburger {
+        margin-left: 0;
+        /* Sin margen izquierdo en el móvil */
+    }
+
+    .filter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .product-grid {
+        display: flex;
+        /* Cambia a flex para el modo móvil */
+        flex-direction: column;
+        /* Apila las imágenes */
+        align-items: center;
+        /* Centra las imágenes */
+    }
+}
+
+/* Estilos para los enlaces del menú de navegación de escritorio */
+.desktop-nav a {
+    color:white;
+    /* Cambia el color del texto aquí */
+    text-decoration: none;
+    /* Remueve el subrayado */
+    padding: 0.5rem 1rem;
+    /* Espacio alrededor del texto */
+}
+
+.desktop-nav a:hover {
+    color: rgb(3, 133, 177);
+    /* Cambia el color al pasar el cursor */
+    text-decoration: underline;
+    /* Opcional: subrayado al pasar el cursor */
+}
+
+/* Estilo para el icono del carrito */
+.icons a img {
+    transition: filter 0.3s ease;
+    /* Añade una transición suave */
+}
+
+.icons a:hover img {
+    filter: brightness(0) invert(1);
+    /* Cambia el color de la imagen a blanco */
+}
+
+.header {
+    position: relative; /* Para permitir el posicionamiento absoluto del logo */
+}
+
+
